@@ -11,7 +11,7 @@ import lombok.Setter;
 public class SchoolSubjetcs {
 
 	@Id
-	//private ObjectId _id;
+	private ObjectId _id;
 	private String name;
 	private String teacher;
 	private String [] students;
