@@ -92,14 +92,17 @@ public class GenericServiceImplementation<R, D> implements GenericService<R, D> 
 
 	@Override
 	public void deleteById(D d) {
+		genericRepository.deleteById(d);
 	}
 
 	@Override
 	public void delete(R entity) {
+		genericRepository.delete(entity);
 	}
 
 	@Override
 	public void deleteAll(Iterable<? extends R> entities) {
+		genericRepository.deleteAll(entities);
 	}
 
 	@Override

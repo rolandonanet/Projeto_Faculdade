@@ -19,15 +19,5 @@ public class User {
 	private int registration;
 	private List<Subjects> subjects;
 	private String password;
-	
-	//Custom Constructors
-	
-    public void setSubjects(List<Subjects> subjects) {
-        this.subjects = subjects;
-    }
     
-    
-    
-    
-
 }
