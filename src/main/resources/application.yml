@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username: rolandonanet
+      password: MOV@43214244884
+      authentication-database: presencelist
+      database: presencelist
+  server:
+    port: 8080
+    servlet:
+      context-path: /presence_list/api

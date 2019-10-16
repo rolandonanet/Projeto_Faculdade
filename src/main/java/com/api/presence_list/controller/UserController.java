@@ -7,12 +7,13 @@ import org.bson.types.ObjectId;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(tags = "SchoolSubjetcs")
+@Api(tags = "User")
 @RestController
-@RequestMapping("/SchoolSubjetcsController")
+@RequestMapping("/User")
 public class UserController extends GenericController<User, ObjectId> {
 
 	UserController(UserService service) {
 		super(service);
 	}
 }
+

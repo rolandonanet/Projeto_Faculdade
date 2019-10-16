@@ -1,7 +1,5 @@
 package com.api.presence_list.model;
 
-import java.util.List;
-
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
@@ -10,14 +8,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class User {
+public class Theme {
 
 	@Id
 	private ObjectId _id;
-	private String userType;
 	private String name;
-	private int registration;
-	private List<Presence> presence;
-	private String password;
+	private String theme;
+	private String teacher;
+	private String [] schedule_List;
+	
+
 
 }
+
