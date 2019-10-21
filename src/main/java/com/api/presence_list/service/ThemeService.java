@@ -3,11 +3,12 @@ package com.api.presence_list.service;
 import com.api.presence_list.model.Theme;
 import com.api.presence_list.repository.ThemeRepository;
 import org.bson.types.ObjectId;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
-
 import java.util.Optional;
 
+@Lazy
 public interface ThemeService extends GenericService<Theme, ObjectId>, ThemeRepository {
 
 	Optional<Theme> read(ObjectId id);

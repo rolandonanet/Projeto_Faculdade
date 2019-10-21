@@ -3,11 +3,12 @@ package com.api.presence_list.service;
 import com.api.presence_list.model.StudentClass;
 import com.api.presence_list.repository.StudentClassRepository;
 import org.bson.types.ObjectId;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
-
 import java.util.Optional;
 
+@Lazy
 public interface StudentClassService extends GenericService<StudentClass, ObjectId>, StudentClassRepository {
 
 	Optional<StudentClass> read(ObjectId id);

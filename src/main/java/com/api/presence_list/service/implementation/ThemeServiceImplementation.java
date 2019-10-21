@@ -6,8 +6,10 @@ import com.api.presence_list.repository.ThemeRepository;
 import com.api.presence_list.service.ThemeService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
+@Lazy
 @Service("themeService")
 public class ThemeServiceImplementation extends GenericServiceImplementation<Theme, ObjectId> implements ThemeService {
 	@Autowired
