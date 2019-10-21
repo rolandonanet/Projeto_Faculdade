@@ -9,14 +9,13 @@ import io.swagger.annotations.Api;
 
 @Api(tags = "Presence")
 @RestController
-@RequestMapping("/Presence")
+@RequestMapping("/presence")
 
 public class PresenceController extends GenericController<Presence, ObjectId> {
 
 	PresenceController(PresenceService service) {
 		super(service);
 	}
-
 
 }
 

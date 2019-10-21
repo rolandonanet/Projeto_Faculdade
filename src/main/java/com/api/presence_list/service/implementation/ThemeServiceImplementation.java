@@ -8,11 +8,12 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("ThemeService")
+@Service("themeService")
 public class ThemeServiceImplementation extends GenericServiceImplementation<Theme, ObjectId> implements ThemeService {
+	@Autowired
 	private ThemeRepository repository;
 
-	@Autowired
+
 	public ThemeServiceImplementation(GenericRepository<Theme, ObjectId> genericRepository) {
 		super(genericRepository);
 

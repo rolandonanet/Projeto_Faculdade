@@ -9,7 +9,7 @@ import io.swagger.annotations.Api;
 
 @Api(tags = "StudentClass")
 @RestController
-@RequestMapping("/StudentClass")
+@RequestMapping("/studentClass")
 public class StudentClassController extends GenericController<StudentClass, ObjectId> {
 
 	StudentClassController(StudentClassService service) {

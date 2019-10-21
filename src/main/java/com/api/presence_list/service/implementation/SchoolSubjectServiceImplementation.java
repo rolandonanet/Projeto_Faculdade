@@ -8,11 +8,12 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("SchoolSubjectService")
+@Service("schoolSubjectService")
 public class SchoolSubjectServiceImplementation extends GenericServiceImplementation<SchoolSubject, ObjectId> implements SchoolSubjectService {
+	@Autowired
 	private SchoolSubjectRepository repository;
 
-	@Autowired
+
 	public SchoolSubjectServiceImplementation(GenericRepository<SchoolSubject, ObjectId> genericRepository) {
 		super(genericRepository);
 

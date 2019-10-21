@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Api(tags = "User")
 @RestController
-@RequestMapping("/User")
+@RequestMapping("/user")
 public class UserController extends GenericController<User, ObjectId> {
 
 	UserController(UserService service) {

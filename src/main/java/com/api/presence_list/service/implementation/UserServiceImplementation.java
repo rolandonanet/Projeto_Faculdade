@@ -8,11 +8,12 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("UserService")
+@Service("userService")
 public class UserServiceImplementation extends GenericServiceImplementation<User, ObjectId> implements UserService {
+	@Autowired
 	private UserRepository repository;
 
-	@Autowired
+	
 	public UserServiceImplementation(GenericRepository<User, ObjectId> genericRepository) {
 		super(genericRepository);
 

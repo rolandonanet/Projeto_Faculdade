@@ -11,7 +11,7 @@ import io.swagger.annotations.Api;
 
 @Api(tags = "Theme")
 @RestController
-@RequestMapping("/Theme")
+@RequestMapping("/theme")
 
 public class ThemeController extends GenericController<Theme, ObjectId> {
 
