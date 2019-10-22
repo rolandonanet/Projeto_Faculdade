@@ -4,6 +4,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,8 +12,8 @@ import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-@ComponentScan("com.api.chamada.model")
-@EnableMongoRepositories(basePackages = "com.api.chamada.repository")
+@ComponentScan("com.api.presence_list.model")
+@EnableMongoRepositories(basePackages = "com.api.presence_list.repository")
 public class MongoConfig extends AbstractMongoConfiguration {
 
     @Value("${spring.data.mongodb.username}")
@@ -31,7 +32,7 @@ public class MongoConfig extends AbstractMongoConfiguration {
     public MongoClient mongoClient() {
         MongoCredential mongoCredential = MongoCredential.createCredential(username, database, password.toCharArray());
         ServerAddress serverAddress = new ServerAddress(host, port);
-        MongoClientOptions mongoClientOptions = MongoClientOptions.builder().applicationName("chamada").build();
+        MongoClientOptions mongoClientOptions = MongoClientOptions.builder().applicationName("presence_list").build();
         return new MongoClient(serverAddress, mongoCredential, mongoClientOptions);
     }
 
