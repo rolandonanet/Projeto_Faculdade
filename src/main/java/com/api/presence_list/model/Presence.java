@@ -1,11 +1,9 @@
 package com.api.presence_list.model;
 
-import org.springframework.data.annotation.Id;
-
 import java.util.Date;
-import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,10 +17,3 @@ public class Presence {
 	private String theme;
 	private Date day;
 }
-
-
-
-
-
-
-

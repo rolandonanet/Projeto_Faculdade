@@ -5,6 +5,7 @@ import com.api.presence_list.service.GenericService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
@@ -19,11 +20,9 @@ import java.util.Optional;
  * @param <U> Generic Entity ObjectId
  */
 public abstract class GenericController<E, U> {
-	private final GenericService<E, U> service;
 
-	GenericController(GenericService service) {
-		this.service = service;
-	}
+	@Autowired
+	private GenericService<E, U> service;
 
 	@ApiOperation(value = "create")
 	@RequestMapping(method = RequestMethod.POST)

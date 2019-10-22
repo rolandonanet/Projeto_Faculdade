@@ -1,12 +1,11 @@
 package com.api.presence_list.service;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 import com.api.presence_list.repository.GenericRepository;
 
-import java.util.Optional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 
 /**
  * The type Generic Service.

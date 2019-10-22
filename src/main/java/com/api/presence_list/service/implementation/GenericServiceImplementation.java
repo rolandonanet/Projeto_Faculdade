@@ -3,10 +3,12 @@ package com.api.presence_list.service.implementation;
 import com.api.presence_list.repository.GenericRepository;
 import com.api.presence_list.service.GenericService;
 import org.springframework.data.domain.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class GenericServiceImplementation<R, D> implements GenericService<R, D> {
 	private final GenericRepository<R, D> genericRepository;
 
