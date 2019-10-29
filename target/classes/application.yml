@@ -3,7 +3,11 @@ spring:
     mongodb:
       host: localhost
       port: 27017
+<<<<<<< HEAD
       username: teste
+=======
+      username: teste 
+>>>>>>> 64b8a0c510885d709e123d0d15ee113be2c4b103
       password: teste
       authentication-database: presencelist
       database: presencelist
