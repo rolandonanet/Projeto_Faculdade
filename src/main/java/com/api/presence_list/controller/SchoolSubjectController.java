@@ -10,7 +10,7 @@ import io.swagger.annotations.Api;
 
 @Api(tags = "SchoolSubjetcs")
 @RestController
-@RequestMapping("/schoolSubjetcs")
+@RequestMapping("/schoolSubject")
 public class SchoolSubjectController extends GenericController<SchoolSubject, ObjectId> {
 
 }

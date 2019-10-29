@@ -17,7 +17,5 @@ public class Theme {
 	private String teacher;
 	private String [] schedule_List;
 	
-
-
+	
 }
-
