@@ -1,9 +1,10 @@
 spring:
   data:
     mongodb:
-      host: ds141188.mlab.com:41188/heroku_2h0prhnv
-      username: rolandonanet  
-      password: MOV@43214244884
+      host: ds141188.mlab.com
+      port: 41188
+      username: teste
+      password: teste
       authentication-database: presencelist
       database: presencelist
   server:
