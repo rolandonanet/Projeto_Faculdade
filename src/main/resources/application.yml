@@ -3,8 +3,8 @@ spring:
     mongodb:
       host: ds141188.mlab.com
       port: 41188
-      username: teste
-      password: teste
+      username: rolandonanet
+      password: MOV@43214244884
       authentication-database: presencelist
       database: presencelist
   server:
