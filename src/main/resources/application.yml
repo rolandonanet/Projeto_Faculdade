@@ -5,8 +5,8 @@ spring:
       port: 41188
       username: rolandonanet
       password: MOV@43214244884
-      authentication-database: presencelist
-      database: presencelist
+      authentication-database: heroku_2h0prhnv
+      database: heroku_2h0prhnv
   server:
     port: 8080
     servlet:
