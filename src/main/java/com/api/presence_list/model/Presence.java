@@ -2,8 +2,7 @@ package com.api.presence_list.model;
 
 import java.util.Date;
 
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,8 +11,7 @@ import lombok.Setter;
 @Setter
 public class Presence {
 
-	@Id
-	private ObjectId _id;
-	private String theme;
+	private Theme theme;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy hh:mm:ss")
 	private Date day;
 }

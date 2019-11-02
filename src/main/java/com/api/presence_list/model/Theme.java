@@ -14,8 +14,7 @@ public class Theme {
 	private ObjectId _id;
 	private String name;
 	private String theme;
-	private String teacher;
-	private String [] schedule_List;
-	
-	
+	private ObjectId teacher_id;
+	private String[] schedule_List;
+
 }
