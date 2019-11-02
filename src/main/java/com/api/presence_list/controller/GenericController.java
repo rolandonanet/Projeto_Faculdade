@@ -57,24 +57,24 @@ public abstract class GenericController<E, U> {
 		return service.list(pageNumber, pageSize, direction, orderBy);
 	}
 
-	@ApiOperation(value = "Show a pageable list of a filter of items (like)")
-	@RequestMapping(method = RequestMethod.GET, value = "/search")
-	public Page<E> search(@ApiParam(value = "game", required = true) E entity,
-			@RequestParam(value = "page number", defaultValue = "0") Integer pageNumber,
-			@RequestParam(value = "page size", defaultValue = "10") Integer pageSize,
-			@RequestParam(value = "direction", defaultValue = "ASC") Sort.Direction direction,
-			@RequestParam(value = "orderBy", defaultValue = "id") String orderBy) {
-		return service.search(entity, pageNumber, pageSize, direction, orderBy);
-	}
-
-	@ApiOperation(value = "Show a pageable list of a filter of items (exact)")
-	@RequestMapping(method = RequestMethod.GET, value = "/find")
-	public Page<E> find(@ApiParam(value = "game", required = true) E entity,
-			@RequestParam(value = "page number", defaultValue = "0") Integer pageNumber,
-			@RequestParam(value = "page size", defaultValue = "10") Integer pageSize,
-			@RequestParam(value = "direction", defaultValue = "ASC") Sort.Direction direction,
-			@RequestParam(value = "orderBy", defaultValue = "id") String orderBy) {
-		return service.find(entity, pageNumber, pageSize, direction, orderBy);
-	}
+//	@ApiOperation(value = "Show a pageable list of a filter of items (like)")
+//	@RequestMapping(method = RequestMethod.GET, value = "/search")
+//	public Page<E> search(@ApiParam(value = "game", required = true) E entity,
+//			@RequestParam(value = "page number", defaultValue = "0") Integer pageNumber,
+//			@RequestParam(value = "page size", defaultValue = "10") Integer pageSize,
+//			@RequestParam(value = "direction", defaultValue = "ASC") Sort.Direction direction,
+//			@RequestParam(value = "orderBy", defaultValue = "id") String orderBy) {
+//		return service.search(entity, pageNumber, pageSize, direction, orderBy);
+//	}
+//
+//	@ApiOperation(value = "Show a pageable list of a filter of items (exact)")
+//	@RequestMapping(method = RequestMethod.GET, value = "/find")
+//	public Page<E> find(@ApiParam(value = "game", required = true) E entity,
+//			@RequestParam(value = "page number", defaultValue = "0") Integer pageNumber,
+//			@RequestParam(value = "page size", defaultValue = "10") Integer pageSize,
+//			@RequestParam(value = "direction", defaultValue = "ASC") Sort.Direction direction,
+//			@RequestParam(value = "orderBy", defaultValue = "id") String orderBy) {
+//		return service.find(entity, pageNumber, pageSize, direction, orderBy);
+//	}
 
 }
