@@ -1,5 +1,6 @@
 package com.api.presence_list.model;
 
+import java.util.Date;
 import java.util.List;
 
 import org.bson.types.ObjectId;
@@ -21,5 +22,9 @@ public class User {
 	@DBRef
 	private List<Presence> presence;
 	private String password;
+
+	public String get_id() {
+		return _id.toHexString();
+	}
 
 }

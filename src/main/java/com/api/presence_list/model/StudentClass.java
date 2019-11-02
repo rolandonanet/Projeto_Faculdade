@@ -20,4 +20,8 @@ public class StudentClass {
 	private List<User> user;
 	@DBRef
 	private List<SchoolSubject> schoolSubject;
+
+	public String get_id() {
+		return _id.toHexString();
+	}
 }

@@ -20,4 +20,8 @@ public class SchoolSubject {
 	@DBRef
 	private List<Theme> theme;
 
+	public String get_id() {
+		return _id.toHexString();
+	}
+
 }
