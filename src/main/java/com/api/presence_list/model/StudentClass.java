@@ -17,8 +17,6 @@ public class StudentClass {
 	private ObjectId _id;
 	private String name;
 	@DBRef
-	private List<User> user;
-	@DBRef
 	private List<SchoolSubject> schoolSubject;
 
 	public String get_id() {

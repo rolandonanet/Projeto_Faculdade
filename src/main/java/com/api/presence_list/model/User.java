@@ -16,15 +16,21 @@ public class User {
 
 	@Id
 	private ObjectId _id;
-	private String userType;
-	private String name;
-	private int registration;
-	@DBRef
-	private List<Presence> presence;
+	private String email;
 	private String password;
+	private String name;
+	private String userType;
+	private int registration;
+	private List<Presence> presence;
+	private List<ObjectId> themeId;
+	
 
 	public String get_id() {
 		return _id.toHexString();
+	}
+
+	public String getPassword() {
+		return null;
 	}
 
 }

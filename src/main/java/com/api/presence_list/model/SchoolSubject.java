@@ -14,14 +14,9 @@ import lombok.Setter;
 @Setter
 public class SchoolSubject {
 
-	@Id
-	private ObjectId _id;
 	private String name;
 	@DBRef
-	private List<Theme> theme;
-
-	public String get_id() {
-		return _id.toHexString();
-	}
+	private Theme theme;
+	
 
 }

@@ -1,6 +1,9 @@
 package com.api.presence_list.controller;
 
+import com.api.presence_list.model.DTO.InsertThemeUserDTO;
 import com.api.presence_list.service.GenericService;
+import com.api.presence_list.service.StudentClassService;
+import com.api.presence_list.service.UserService;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -23,6 +26,12 @@ public abstract class GenericController<E, U> {
 
 	@Autowired
 	private GenericService<E, U> service;
+
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private StudentClassService studentClassService;
 
 	@ApiOperation(value = "create")
 	@RequestMapping(method = RequestMethod.POST)
@@ -51,10 +60,18 @@ public abstract class GenericController<E, U> {
 	@ApiOperation(value = "Show a Pageable list of all items")
 	@RequestMapping(method = RequestMethod.GET, value = "/list")
 	public Page<E> list(@RequestParam(value = "page number", defaultValue = "0") Integer pageNumber,
-			@RequestParam(value = "page size", defaultValue = "10") Integer pageSize,
+			@RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
 			@RequestParam(value = "direction", defaultValue = "ASC") Sort.Direction direction,
 			@RequestParam(value = "orderBy", defaultValue = "id") String orderBy) {
 		return service.list(pageNumber, pageSize, direction, orderBy);
+	}
+
+	@ApiOperation(value = "Update Theme and User ")
+	@RequestMapping(method = RequestMethod.PUT, value = "/updateThemeUser")
+	public String create(@ApiParam(value = "entity", required = true) @RequestBody InsertThemeUserDTO entity) {
+		userService.updateThemeUser(entity);
+		studentClassService.updateThemeUser(entity);
+		return "Succeeded when updating theme and user tables.";
 	}
 
 //	@ApiOperation(value = "Show a pageable list of a filter of items (like)")
