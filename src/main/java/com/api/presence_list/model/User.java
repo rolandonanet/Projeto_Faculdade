@@ -1,6 +1,5 @@
 package com.api.presence_list.model;
 
-import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class User {
 	private int registration;
 	@DBRef
 	private List<Presence> presence;
-	private Base64 password;
+	private String password;
 
 	public String get_id() {
 		return _id.toHexString();
