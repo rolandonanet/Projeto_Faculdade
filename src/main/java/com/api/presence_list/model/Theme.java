@@ -15,8 +15,12 @@ public class Theme {
 	
 	private ObjectId themeId;
 	private String name;
-	private String teacherId;
+	private ObjectId teacherId;
 	private String[] schedule_List;
-	private List<String> userId;
+	private List<ObjectId> userId;
+
+	public String getTeacherId() {
+		return teacherId.toHexString();
+	}
 
 }
