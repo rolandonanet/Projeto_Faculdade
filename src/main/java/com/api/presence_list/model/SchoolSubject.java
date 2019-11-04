@@ -13,7 +13,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SchoolSubject {
-
+	
+	@Id
+	private ObjectId _id;
 	private String name;
 	private Theme theme;
 	
