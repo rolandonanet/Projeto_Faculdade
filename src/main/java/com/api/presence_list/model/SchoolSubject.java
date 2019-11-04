@@ -15,7 +15,6 @@ import lombok.Setter;
 public class SchoolSubject {
 
 	private String name;
-	@DBRef
 	private Theme theme;
 	
 
