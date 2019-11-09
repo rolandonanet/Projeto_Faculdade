@@ -14,10 +14,17 @@ import lombok.Setter;
 @Setter
 public class SchoolSubject {
 	
-	@Id
-	private ObjectId _id;
+	private ObjectId _id = new ObjectId();
 	private String name;
 	private Theme theme;
 	
+	
+	public String get_id() {
+		return _id.toHexString();
+	}
+
+	public void set_id(String id) {
+		this._id = (id == null) ? null : new ObjectId(id);
+	}
 
 }

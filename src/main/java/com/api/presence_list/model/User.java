@@ -21,8 +21,8 @@ public class User {
 	private String name;
 	private String userType;
 	private int registration;
-	private List<Presence> presence;
-	private List<ObjectId> themeId;
+	private List<Presence> presences;
+	private List<ObjectId> themeIds;
 	
 
 	public String get_id() {

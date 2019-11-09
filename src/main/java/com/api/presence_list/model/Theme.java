@@ -13,14 +13,21 @@ import lombok.Setter;
 @Setter
 public class Theme {
 	
-	private ObjectId themeId;
+	private ObjectId _id = new ObjectId();
 	private String name;
 	private ObjectId teacherId;
 	private String[] schedule_List;
-	private List<ObjectId> userId;
+	private List<ObjectId> userIds;
 
 	public String getTeacherId() {
 		return teacherId.toHexString();
 	}
+	
+	public String get_id() {
+		return _id.toHexString();
+	}
 
+	public void set_id(String id) {
+		this._id = (id == null) ? null : new ObjectId(id);
+	}
 }

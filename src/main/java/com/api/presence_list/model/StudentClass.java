@@ -16,10 +16,10 @@ public class StudentClass {
 	@Id
 	private ObjectId _id;
 	private String name;
-	@DBRef
-	private List<SchoolSubject> schoolSubject;
+	private List<SchoolSubject> schoolSubjects;
 
 	public String get_id() {
 		return _id.toHexString();
 	}
+	
 }

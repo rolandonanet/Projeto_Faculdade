@@ -39,7 +39,7 @@ public class UserServiceImplementation extends GenericServiceImplementation<User
 	public void updateThemeUser(InsertThemeUserDTO entity) {
 		Optional<User> userRaw = userRepository.findById(entity.getUserId());
 		User user = userRaw.get();
-		user.getThemeId().add(entity.getThemeId());
+		user.getThemeIds().add(entity.getThemeId());
 		userRepository.save(user);
 	}
 	
