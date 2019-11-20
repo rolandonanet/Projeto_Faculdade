@@ -2,7 +2,7 @@ package com.api.presence_list.service.implementation;
 
 import com.api.presence_list.model.User;
 import com.api.presence_list.model.DTO.InsertThemeUserDTO;
-import com.api.presence_list.model.DTO.loginDTO;
+import com.api.presence_list.model.DTO.LoginDTO;
 import com.api.presence_list.repository.GenericRepository;
 import com.api.presence_list.repository.UserRepository;
 import com.api.presence_list.service.UserService;

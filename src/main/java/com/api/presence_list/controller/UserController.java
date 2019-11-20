@@ -1,7 +1,7 @@
 package com.api.presence_list.controller;
 
 import com.api.presence_list.model.User;
-import com.api.presence_list.model.DTO.loginDTO;
+import com.api.presence_list.model.DTO.LoginDTO;
 import com.api.presence_list.service.UserService;
 
 import java.util.Optional;
@@ -41,7 +41,7 @@ public class UserController extends GenericController<User, ObjectId> {
 
 	@ApiOperation(value = "Valid if user exists")
 	@RequestMapping(method = RequestMethod.POST, value = "/login")
-	public Optional<User> read(@ApiParam(value = "entity", required = true) @RequestBody loginDTO entity) {
+	public Optional<User> read(@ApiParam(value = "entity", required = true) @RequestBody LoginDTO entity) {
 		return service.login(entity);
 	}
 }
