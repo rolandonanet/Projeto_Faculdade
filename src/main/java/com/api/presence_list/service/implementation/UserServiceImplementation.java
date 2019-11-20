@@ -1,8 +1,11 @@
 package com.api.presence_list.service.implementation;
 
+import com.api.presence_list.model.Presence;
 import com.api.presence_list.model.User;
 import com.api.presence_list.model.DTO.InsertThemeUserDTO;
-import com.api.presence_list.model.DTO.loginDTO;
+import com.api.presence_list.model.DTO.LoginDTO;
+import com.api.presence_list.model.DTO.PresenceInsertDTO;
+import com.api.presence_list.model.DTO.PresenceUpdateDTO;
 import com.api.presence_list.repository.GenericRepository;
 import com.api.presence_list.repository.UserRepository;
 import com.api.presence_list.service.UserService;
@@ -31,7 +34,7 @@ public class UserServiceImplementation extends GenericServiceImplementation<User
 	}
 
 	@Override
-	public Optional<User> login(loginDTO entity) {
+	public Optional<User> login(LoginDTO entity) {
 		return userRepository.findByEmailAndPassword(entity.getEmail(), entity.getPassword());
 	}
 
@@ -41,6 +44,27 @@ public class UserServiceImplementation extends GenericServiceImplementation<User
 		User user = userRaw.get();
 		user.getThemeIds().add(entity.getThemeId());
 		userRepository.save(user);
+	}
+	
+	public User insertPresence(PresenceInsertDTO entity) {
+		Optional<User> userRaw = userRepository.findById(entity.getUserId());
+		User user = userRaw.get();
+		user.getPresences().addAll(entity.getPresence());
+		return userRepository.save(user);
+	}
+	
+
+	public String updatePresence(PresenceUpdateDTO entity) {
+		Optional<User> userRaw = userRepository.findById(entity.getUserId());
+		User user = userRaw.get();
+		for (Presence presence: user.getPresences()) {
+			if (presence.getDay().equals(entity.getPresence().getDay()) && presence.getThemeId().equals(entity.getPresence().getThemeId())) {
+			    presence.setPresent(entity.getPresence().getPresent());
+			    userRepository.save(user);
+				return "User successfully updated";
+			}
+		}
+		return "User not updated successfully because presence is already recorded for this day";
 	}
 	
 }

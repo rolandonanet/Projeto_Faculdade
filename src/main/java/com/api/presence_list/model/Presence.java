@@ -17,7 +17,8 @@ import lombok.Setter;
 public class Presence {
 
 	private ObjectId themeId;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy hh:mm:ss")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date day;
+	private Boolean present;
 	
 }

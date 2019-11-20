@@ -49,7 +49,7 @@ public class StudentClassServiceImplementation extends GenericServiceImplementat
 //		}
 //		studentClass.setSchoolSubjects(subjects);
 //		studentClassRepository.save(studentClass);
-		
+
 		List<StudentClass> studentClassRaw = studentClassRepository.findAll();
 
 		for (StudentClass studentClass : studentClassRaw) {
