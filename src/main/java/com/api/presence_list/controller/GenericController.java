@@ -1,6 +1,6 @@
 package com.api.presence_list.controller;
 
-import com.api.presence_list.model.DTO.InsertThemeUserDTO;
+import com.api.presence_list.model.DTO.UpdateThemeUserDTO;
 import com.api.presence_list.service.GenericService;
 import com.api.presence_list.service.StudentClassService;
 import com.api.presence_list.service.UserService;
@@ -26,12 +26,6 @@ public abstract class GenericController<E, U> {
 
 	@Autowired
 	private GenericService<E, U> service;
-
-	@Autowired
-	private UserService userService;
-
-	@Autowired
-	private StudentClassService studentClassService;
 
 	@ApiOperation(value = "create")
 	@RequestMapping(method = RequestMethod.POST)
@@ -68,9 +62,8 @@ public abstract class GenericController<E, U> {
 
 	@ApiOperation(value = "Update Theme and User ")
 	@RequestMapping(method = RequestMethod.PUT, value = "/updateThemeUser")
-	public String create(@ApiParam(value = "entity", required = true) @RequestBody InsertThemeUserDTO entity) {
-		userService.updateThemeUser(entity);
-		studentClassService.updateThemeUser(entity);
+	public String create(@ApiParam(value = "entity", required = true) @RequestBody UpdateThemeUserDTO entity) {
+		service.updateThemeUser(entity);
 		return "Succeeded when updating theme and user tables.";
 	}
 

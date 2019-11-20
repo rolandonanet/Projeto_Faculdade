@@ -1,10 +1,20 @@
 package com.api.presence_list.service.implementation;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
+import com.api.presence_list.model.Schedule;
+import com.api.presence_list.model.SchoolSubject;
+import com.api.presence_list.model.StudentClass;
+import com.api.presence_list.model.User;
+import com.api.presence_list.model.DTO.UpdateThemeUserDTO;
 import com.api.presence_list.repository.GenericRepository;
+import com.api.presence_list.repository.StudentClassRepository;
+import com.api.presence_list.repository.UserRepository;
 import com.api.presence_list.service.GenericService;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -19,6 +29,12 @@ public abstract class GenericServiceImplementation<R, D> implements GenericServi
 
 	@Autowired
 	private GenericRepository<R, D> genericRepository;
+
+	@Autowired
+	private UserRepository userRepository;
+
+	@Autowired
+	private StudentClassRepository studentClassRepository;
 
 	// Custom REST Methods
 	@Override
@@ -63,6 +79,37 @@ public abstract class GenericServiceImplementation<R, D> implements GenericServi
 				.withStringMatcher(ExampleMatcher.StringMatcher.EXACT).withIgnorePaths("id");
 		Example<R> query = Example.of(entity, matcher);
 		return genericRepository.findAll(query, pagination);
+	}
+	
+	@Override
+	public void updateThemeUser(UpdateThemeUserDTO entity) {
+		List<StudentClass> studentClassRaw = studentClassRepository.findAll();
+		Optional<User> userRaw = userRepository.findById(entity.getUserId());
+		User user = userRaw.get();
+		Schedule schedule = new Schedule();
+
+		for (StudentClass studentClass : studentClassRaw) {
+
+			List<SchoolSubject> subjects = studentClass.getSchoolSubjects();
+
+			for (SchoolSubject subject : subjects) {
+				if (subject.getTheme().get_id().equals(entity.getThemeId().toHexString())) {
+					subject.getTheme().getUserIds().add(entity.getUserId());
+					studentClass.setSchoolSubjects(subjects);
+					subject.getTheme().get_id();
+
+					for (String scheduleList : subject.getTheme().getSchedule_List()) {
+						schedule.setSchedule(scheduleList);
+						schedule.setThemeId(new ObjectId(subject.getTheme().get_id()));
+						user.getScheduleList().add(schedule);
+						userRepository.save(user);
+					}
+					studentClassRepository.save(studentClass);
+				}
+			}
+
+		}
+
 	}
 
 }

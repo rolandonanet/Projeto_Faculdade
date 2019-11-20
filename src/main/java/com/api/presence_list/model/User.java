@@ -22,7 +22,7 @@ public class User {
 	private String userType;
 	private int registration;
 	private List<Presence> presences;
-	private List<ObjectId> themeIds;
+	private List<Schedule> scheduleList;
 	
 
 	public String get_id() {

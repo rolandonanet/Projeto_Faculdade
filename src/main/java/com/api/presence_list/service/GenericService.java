@@ -5,6 +5,8 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 
+import com.api.presence_list.model.DTO.UpdateThemeUserDTO;
+
 /**
  * The type Generic Service.
  *
@@ -21,11 +23,15 @@ public interface GenericService<E, D> {
 	E update(E entity);
 
 	void deleteById(D id);
+	
+	void updateThemeUser(UpdateThemeUserDTO entity);
 
 	Page<E> list(Integer pageNumber, Integer pageSize, Sort.Direction direction, String orderBy);
 
 	Page<E> search(E entity, Integer pageNumber, Integer pageSize, Sort.Direction direction, String orderBy);
 
 	Page<E> find(E entity, Integer pageNumber, Integer pageSize, Sort.Direction direction, String orderBy);
+
+	
 
 }

@@ -2,7 +2,6 @@ package com.api.presence_list.service.implementation;
 
 import com.api.presence_list.model.Presence;
 import com.api.presence_list.model.User;
-import com.api.presence_list.model.DTO.InsertThemeUserDTO;
 import com.api.presence_list.model.DTO.LoginDTO;
 import com.api.presence_list.model.DTO.PresenceInsertDTO;
 import com.api.presence_list.model.DTO.PresenceUpdateDTO;
@@ -39,13 +38,6 @@ public class UserServiceImplementation extends GenericServiceImplementation<User
 	}
 
 	@Override
-	public void updateThemeUser(InsertThemeUserDTO entity) {
-		Optional<User> userRaw = userRepository.findById(entity.getUserId());
-		User user = userRaw.get();
-		user.getThemeIds().add(entity.getThemeId());
-		userRepository.save(user);
-	}
-	
 	public User insertPresence(PresenceInsertDTO entity) {
 		Optional<User> userRaw = userRepository.findById(entity.getUserId());
 		User user = userRaw.get();
