@@ -98,10 +98,10 @@ public abstract class GenericServiceImplementation<R, D> implements GenericServi
 					studentClass.setSchoolSubjects(subjects);
 					subject.getTheme().get_id();
 
-					for (String scheduleList : subject.getTheme().getSchedule_List()) {
+					for (String scheduleList : subject.getTheme().getSchedules()) {
 						schedule.setSchedule(scheduleList);
 						schedule.setThemeId(new ObjectId(subject.getTheme().get_id()));
-						user.getScheduleList().add(schedule);
+						user.getSchedules().add(schedule);
 						userRepository.save(user);
 					}
 					studentClassRepository.save(studentClass);

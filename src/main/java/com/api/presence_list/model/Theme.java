@@ -16,7 +16,7 @@ public class Theme {
 	private ObjectId _id = new ObjectId();
 	private String name;
 	private ObjectId teacherId;
-	private String[] schedule_List;
+	private String[] schedules;
 	private List<ObjectId> userIds;
 
 	public String getTeacherId() {
