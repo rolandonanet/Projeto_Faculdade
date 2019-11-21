@@ -12,4 +12,9 @@ public class Schedule {
 	private ObjectId themeId;
 	private String schedule;
 	
+	public String getThemeId() {
+		return themeId.toHexString();
+	}
+
+	
 }

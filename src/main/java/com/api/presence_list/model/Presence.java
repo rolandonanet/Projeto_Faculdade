@@ -20,6 +20,10 @@ public class Presence {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date day;
 	private Boolean present;
+	
+	public String getThemeId() {
+		return themeId.toHexString();
+	}
 
 	
 }
