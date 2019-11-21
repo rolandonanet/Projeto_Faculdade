@@ -80,13 +80,13 @@ public abstract class GenericServiceImplementation<R, D> implements GenericServi
 		Example<R> query = Example.of(entity, matcher);
 		return genericRepository.findAll(query, pagination);
 	}
-	
+
 	@Override
 	public void updateThemeUser(UpdateThemeUserDTO entity) {
 		List<StudentClass> studentClassRaw = studentClassRepository.findAll();
 		Optional<User> userRaw = userRepository.findById(entity.getUserId());
 		User user = userRaw.get();
-		Schedule schedule = new Schedule();
+		Schedule schedule;
 
 		for (StudentClass studentClass : studentClassRaw) {
 
@@ -99,11 +99,12 @@ public abstract class GenericServiceImplementation<R, D> implements GenericServi
 					subject.getTheme().get_id();
 
 					for (String scheduleList : subject.getTheme().getSchedules()) {
+						schedule = new Schedule();
 						schedule.setSchedule(scheduleList);
 						schedule.setThemeId(new ObjectId(subject.getTheme().get_id()));
 						user.getSchedules().add(schedule);
-						userRepository.save(user);
 					}
+					userRepository.save(user);
 					studentClassRepository.save(studentClass);
 				}
 			}
