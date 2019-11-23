@@ -1,10 +1,9 @@
 package com.api.presence_list.model;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -29,5 +28,13 @@ public class Theme {
 
 	public void set_id(String id) {
 		this._id = (id == null) ? null : new ObjectId(id);
+	}
+	
+	public List<String> getUserIds(){
+		List<String> response = new ArrayList<>();
+		for(ObjectId userId : userIds) {
+			response.add(userId.toHexString());
+		}
+		return response;
 	}
 }
