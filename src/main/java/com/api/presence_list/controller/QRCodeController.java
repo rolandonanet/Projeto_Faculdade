@@ -33,6 +33,4 @@ public class QRCodeController extends GenericController<QRCode, ObjectId> {
 		return "teste";
 	}
 	
-	
-	
 }

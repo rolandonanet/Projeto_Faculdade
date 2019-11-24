@@ -93,7 +93,7 @@ public abstract class GenericServiceImplementation<R, D> implements GenericServi
 
 			for (SchoolSubject subject : subjects) {
 				if (subject.getTheme().get_id().equals(entity.getThemeId().toHexString())) {
-					subject.getTheme().getUserIds().add(entity.getUserId());
+					subject.getTheme().getUserIds().add(entity.getUserId().toHexString());
 					studentClass.setSchoolSubjects(subjects);
 					subject.getTheme().get_id();
 
