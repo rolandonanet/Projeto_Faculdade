@@ -1,6 +1,5 @@
 package com.api.presence_list.service.implementation;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
