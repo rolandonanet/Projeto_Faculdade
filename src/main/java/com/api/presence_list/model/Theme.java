@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Theme {
-	
+
 	private ObjectId _id = new ObjectId();
 	private String name;
 	private ObjectId teacherId;
@@ -21,7 +21,7 @@ public class Theme {
 	public String getTeacherId() {
 		return teacherId.toHexString();
 	}
-	
+
 	public String get_id() {
 		return _id.toHexString();
 	}
@@ -29,10 +29,10 @@ public class Theme {
 	public void set_id(String id) {
 		this._id = (id == null) ? null : new ObjectId(id);
 	}
-	
-	public List<String> getUserIds(){
+
+	public List<String> getUserIds() {
 		List<String> response = new ArrayList<>();
-		for(ObjectId userId : userIds) {
+		for (ObjectId userId : userIds) {
 			response.add(userId.toHexString());
 		}
 		return response;

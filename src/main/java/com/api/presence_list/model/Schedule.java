@@ -16,5 +16,4 @@ public class Schedule {
 		return themeId.toHexString();
 	}
 
-	
 }
