@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 import javax.validation.constraints.NotEmpty;
@@ -80,7 +81,7 @@ public class UserServiceImplementation extends GenericServiceImplementation<User
 		QRCodeResponseDTO response = new QRCodeResponseDTO();
 		Optional<User> userRaw = userRepository.findById(new ObjectId(entity.getTeacherId()));
 		User teacher = userRaw.get();
-		if(teacher.equals(null)) {
+		if(teacher == null) {
 			response.setError("Usuário não encontrado");
 			return response;
 		}
@@ -93,7 +94,7 @@ public class UserServiceImplementation extends GenericServiceImplementation<User
 		
 		Date now = new Date();
 		
-		SimpleDateFormat  simpleDayOfWeekDateformat = new SimpleDateFormat("EEEE");
+		SimpleDateFormat  simpleDayOfWeekDateformat = new SimpleDateFormat("EEEE", Locale.ENGLISH);
 		
 		String currentDayOfWeek = simpleDayOfWeekDateformat.format(now);
 
@@ -102,7 +103,7 @@ public class UserServiceImplementation extends GenericServiceImplementation<User
 		for(Schedule schedule : schedules){
 			String scheduleDayOfWeek = schedule.getSchedule().substring(0, schedule.getSchedule().indexOf("_"));
 			if(scheduleDayOfWeek.toLowerCase().equals(currentDayOfWeek.toLowerCase())) {
-				if(currentSchedule.equals(null)) {
+				if(currentSchedule == null) {
 					currentSchedule = new Schedule();
 					currentSchedule = schedule;
 					continue;
@@ -125,7 +126,7 @@ public class UserServiceImplementation extends GenericServiceImplementation<User
 			}
 		}
 		
-		if(currentSchedule.equals(null)) {
+		if(currentSchedule == null) {
 			response.setError("Não foi encontrado um horário válido");
 			return response;
 		}		
@@ -151,12 +152,12 @@ public class UserServiceImplementation extends GenericServiceImplementation<User
 		
 		String qrCode = entity.getEncodedQRCode();
 		String teacherId = qrCode.substring(0, qrCode.indexOf("|"));
-		String key = qrCode.substring(qrCode.indexOf("|"+1));
+		String key = qrCode.substring(qrCode.indexOf("|") + 1);
 		
 		Optional<User> teacherRaw = userRepository.findById(new ObjectId(teacherId));
 		User teacher = teacherRaw.get();
 		
-		if(teacher.equals(null)) {
+		if(teacher == null) {
 			response.setError("Professor não encontrado");
 			return response;
 		}
@@ -183,13 +184,16 @@ public class UserServiceImplementation extends GenericServiceImplementation<User
 		Optional<User> studentRaw = userRepository.findById(new ObjectId(entity.getStudentId()));
 		User student = studentRaw.get();
 		
-		if(student.equals(null)) {
+		if(student == null) {
 			response.setError("Aluno não encontrado");
 			return response;
 		}
 		
 		for(Presence curStudentPresence : student.getPresences()) {
-			if(curStudentPresence.equals(studentPresence))  {
+			if(curStudentPresence.getPresent().equals(studentPresence.getPresent())
+					&& curStudentPresence.getPresent().equals(studentPresence.getPresent())
+					&& curStudentPresence.getDay().equals(studentPresence.getDay())
+					&& curStudentPresence.getThemeId().equals(studentPresence.getThemeId()))  {
 				response.setError("Já possui esta presença");
 				return response;
 			}
@@ -198,6 +202,8 @@ public class UserServiceImplementation extends GenericServiceImplementation<User
 		student.getPresences().add(studentPresence);
 		
 		userRepository.save(student);
+		
+		response.setMessage("Presença registrada com sucesso");
 		
 		return response;
 	}
