@@ -21,6 +21,7 @@ public class User {
 	private String name;
 	private String userType;
 	private int registration;
+	private QRCode qrCode;
 	private List<Presence> presences;
 	private List<Schedule> schedules;
 	

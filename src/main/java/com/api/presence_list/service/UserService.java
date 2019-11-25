@@ -5,7 +5,11 @@ import com.api.presence_list.model.DTO.LoginDTO;
 
 import com.api.presence_list.model.DTO.PresenceInsertDTO;
 import com.api.presence_list.model.DTO.PresenceUpdateDTO;
+import com.api.presence_list.model.DTO.QRCodeCheckDTO;
+import com.api.presence_list.model.DTO.QRCodeDTO;
+import com.api.presence_list.model.DTO.QRCodeResponseDTO;
 
+import java.text.ParseException;
 import java.util.Optional;
 
 import org.bson.types.ObjectId;
@@ -21,5 +25,9 @@ public interface UserService extends GenericService<User, ObjectId> {
 	User insertPresence(PresenceInsertDTO entity);
 
 	String updatePresence(PresenceUpdateDTO entity);
+	
+	QRCodeResponseDTO generateQRCode(QRCodeDTO entity);
+	
+	QRCodeResponseDTO checkQRCode(QRCodeCheckDTO entity) throws ParseException;
 
 }

@@ -5,9 +5,12 @@ import com.api.presence_list.model.DTO.LoginDTO;
 
 import com.api.presence_list.model.DTO.PresenceInsertDTO;
 import com.api.presence_list.model.DTO.PresenceUpdateDTO;
-
+import com.api.presence_list.model.DTO.QRCodeCheckDTO;
+import com.api.presence_list.model.DTO.QRCodeDTO;
+import com.api.presence_list.model.DTO.QRCodeResponseDTO;
 import com.api.presence_list.service.UserService;
 
+import java.text.ParseException;
 import java.util.Optional;
 
 import org.bson.types.ObjectId;
@@ -59,6 +62,18 @@ public class UserController extends GenericController<User, ObjectId> {
 	@RequestMapping(method = RequestMethod.PUT, value = "/presence/update")
 	public String update(@ApiParam(value = "entity", required = true) @RequestBody PresenceUpdateDTO entity) {
 		return service.updatePresence(entity);
+	}
+	
+	@ApiOperation(value = "Request to generate QR code")
+	@RequestMapping(method = RequestMethod.POST, value = "/qrcode")
+	public QRCodeResponseDTO generateQRCode(@ApiParam(value = "entity", required = true) @RequestBody QRCodeDTO entity) {
+		return service.generateQRCode(entity);
+	}
+	
+	@ApiOperation(value = "Check QR code")
+	@RequestMapping(method = RequestMethod.PUT, value = "/qrcode")
+	public QRCodeResponseDTO checkQRCode(@ApiParam(value = "entity", required = true) @RequestBody QRCodeCheckDTO entity) throws ParseException {
+		return service.checkQRCode(entity);
 	}
 	
 }
