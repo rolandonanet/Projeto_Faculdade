@@ -191,11 +191,13 @@ public class UserServiceImplementation extends GenericServiceImplementation<User
 		
 		for(Presence curStudentPresence : student.getPresences()) {
 			if(curStudentPresence.getPresent().equals(studentPresence.getPresent())
-					&& curStudentPresence.getPresent().equals(studentPresence.getPresent())
 					&& curStudentPresence.getDay().equals(studentPresence.getDay())
 					&& curStudentPresence.getThemeId().equals(studentPresence.getThemeId()))  {
-				response.setError("Já possui esta presença");
-				return response;
+				if(curStudentPresence.getPresent()){
+					response.setError("Já possui esta presença");
+					return response;
+				}
+				curStudentPresence.setPresent(true);
 			}
 		}
 		
