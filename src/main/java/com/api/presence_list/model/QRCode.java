@@ -8,7 +8,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class QRCode {
+
 	private ObjectId themeId;
 	private String key;
 	private String time;
+
 }

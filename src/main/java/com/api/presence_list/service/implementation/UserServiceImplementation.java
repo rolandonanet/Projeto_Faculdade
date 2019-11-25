@@ -7,6 +7,7 @@ import com.api.presence_list.model.User;
 import com.api.presence_list.model.DTO.LoginDTO;
 import com.api.presence_list.model.DTO.PresenceInsertDTO;
 import com.api.presence_list.model.DTO.PresenceUpdateDTO;
+
 import com.api.presence_list.model.DTO.QRCodeCheckDTO;
 import com.api.presence_list.model.DTO.QRCodeDTO;
 import com.api.presence_list.model.DTO.QRCodeResponseDTO;
@@ -23,12 +24,12 @@ import java.util.Optional;
 
 import javax.validation.constraints.NotEmpty;
 
+
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 

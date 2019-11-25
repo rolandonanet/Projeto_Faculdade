@@ -13,12 +13,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SchoolSubject {
-	
+
 	private ObjectId _id = new ObjectId();
 	private String name;
 	private Theme theme;
-	
-	
+
 	public String get_id() {
 		return _id.toHexString();
 	}
